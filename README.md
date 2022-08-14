@@ -17,6 +17,8 @@ be manually modified to use the sandboxed version instead.
 e.g. photo managers, have their internet access blocked by default. If internet access
 is still required, just add the "--share-net" option after the "--unshare-all"
 option on the profile.
+- Most profiles try to preload [hardened_malloc](https://github.com/GrapheneOS/hardened_malloc)
+from /usr/lib. If it doesn't exist, an error is printed but it can be safely ignored.
 
 ### Requirements
 - The GNU Coreutils should be installed on the system since some profiles need them.
