@@ -4,7 +4,7 @@ to sandbox applications. I put them online primarily so I could easily fetch the
 from any machine, but feel free to use them yourself. Everything is released under
 the MIT license. The profile names are the same as their applications binary names.
 
-# Notes
+## Notes
 - All profiles were tested on Arch/Artix Linux machines running the linux-hardened
 kernel. They should work on other distros, but there won't be any guarantees!
 - To call the sandboxed version of the application before the regular one, the profiles
