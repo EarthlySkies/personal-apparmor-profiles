@@ -1,8 +1,9 @@
 # Personal Bubblewrap profiles
-This repository houses a collection of the Bubblewrap profiles I personally use
-to sandbox applications. I put them online primarily so I could easily fetch them
-from any machine, but feel free to use them yourself. Everything is released under
-the MIT license. The profile names are the same as their applications binary names.
+This repository houses a collection of the [Bubblewrap](https://github.com/containers/bubblewrap)
+profiles I personally use to sandbox applications. I put them online primarily so 
+I could easily fetch them from any machine, but feel free to use them yourself. 
+Everything is released under the MIT license. The profile names are the same as their 
+applications binary names.
 
 ## Notes
 - All profiles were tested on Arch/Artix Linux machines running the linux-hardened
