@@ -23,7 +23,7 @@ option on the profile.
 - If the sysctl value of "kernel.unprivileged_userns_clone" is set to 0, Bubblewrap
 needs to be installed as its SUID variant to work properly.
 
-# Limitations
+## Limitations
 - Only default paths are specified within the profiles. Some applications allow the user
 to specify custom paths to search/downloads files from/to. Since these paths
 can be arbitrary, the profiles don't even attempt to cover them. If you use custom
