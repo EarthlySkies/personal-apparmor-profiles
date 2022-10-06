@@ -1,0 +1,26 @@
+# vim:syntax=apparmor
+##-----------------------------------------------------------------------------
+## AppArmor profile for the "file" utility
+## Tested with file 5.43-1 on Artix Linux
+## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
+## Profile license: MIT license
+## Target program: https://darwinsys.com/file/
+##-----------------------------------------------------------------------------
+
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile file /{,usr/}{bin,sbin}/file {
+
+  # Basic operating necessities
+  include <abstractions/base>
+  include <abstractions/consoles>
+
+  # As a general utility, we might read from anywhere on the system
+  /** r,
+
+  # Site-specific additions and overrides. See local/README for details
+  include if exists <local/bin.file>
+
+}
