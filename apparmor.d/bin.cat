@@ -13,7 +13,7 @@ include <tunables/global>
 
 profile cat /{,usr/}{bin,sbin}/cat {
 
-  # The only places we need write access to
+  # Basic operating necessities
   include <abstractions/base>
   include <abstractions/consoles>
 
