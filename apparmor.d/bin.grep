@@ -1,0 +1,27 @@
+# vim:syntax=apparmor
+##-----------------------------------------------------------------------------
+## AppArmor profile for the "grep" GNU utility
+## Tested with grep 3.8-2 on Artix Linux
+## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
+## Profile license: MIT license
+## Target program: https://gnu.org/software/grep
+##-----------------------------------------------------------------------------
+
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile grep /{,usr/}{bin,sbin}/grep {
+
+  # Basic operating necessities
+  include <abstractions/base>
+  include <abstractions/consoles>
+
+  # As a general utility, we might read data from anywhere on the system
+  /** r,
+
+  # Site-specific additions and overrides. See local/README for details
+  include if exists <local/bin.grep>
+
+}
+
