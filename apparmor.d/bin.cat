@@ -17,7 +17,7 @@ profile cat /{,usr/}{bin,sbin}/cat {
   include <abstractions/base>
   include <abstractions/consoles>
 
-  # With a coreutil, data might be read from anywhere
+  # As a coreutil, we might read data from anywhere on the system
   /** r,
 
   # Site-specific additions and overrides. See local/README for details
