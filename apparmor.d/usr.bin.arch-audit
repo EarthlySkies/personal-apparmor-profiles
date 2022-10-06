@@ -4,7 +4,7 @@
 ## Tested with arch-audit 0.1.20-1 on Artix Linux
 ## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
 ## Profile license: MIT license
-## Program repository: https://github.com/ilpianista/arch-audit
+## Target program: https://github.com/ilpianista/arch-audit
 ##-----------------------------------------------------------------------------
 
 abi <abi/3.0>,
