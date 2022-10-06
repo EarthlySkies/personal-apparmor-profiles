@@ -1,6 +1,6 @@
 Personal AppArmor profiles
 ============================
--------------------------------------------------------------------------------
+
 This repository houses a collection of the custom AppArmor profiles I
 personally use to sandbox applications. I put them online primarily so I could
 easily fetch them from any machine, but feel free to use them yourself, as
