@@ -9,20 +9,30 @@ everything here is released under the MIT license.
 Notes
 -----
 
-- Profile names match the target executable's binary name
-- No profiles provided by the "apparmor" package are included
-- All profiles were tested on Arch/Artix Linux machines running the
-linux-hardened kernel. They might also work on other distros, but no guarantees
-- Programs which don't require internet access to fulfill their primary
-function, e.g. photo managers, have their internet access blocked by default.
+### Internet access is not guaranteed
 
-Limitations
------------
+Some applications have the ability extend their capabilities by fetching
+additional data from the internet. Most profiles disable such functionality.
+In general, unless internet access is needed to fulfill the primary function
+of a program, it will be completely disabled.
 
-- Only default paths are specified within the profiles. Some applications allow the user
-to specify custom paths to search/downloads files from/to. Since these paths
-can be arbitrary, the profiles don't even attempt to cover them. If you use custom
-paths, you must specify them manually.
-- Most profiles have full read access to /usr/lib due to maintenance limitations.
-Trying to map out and maintain what shared objects/libraries each program needs and
-doesn't need is just asking to be thrown into dependency hell.
+### Only default paths are supported
+
+Many applications allow the user to specify custom paths for file storage and
+search. Trying to account for all possibilities would only result in not being
+able to confine an applications access to personal files at all. As such,
+custom paths are simply not supported any further than perhaps with variables
+in some profiles.
+
+### Naming scheme
+
+Basic utilities, such as coreutils, findutils, diffutils and binutils have
+their filenames as `bin.*`. General user applications have their name as
+`usr.bin.*` The actual profile names defined inside the files always match the
+binary executable's name they are designed for.
+
+### AppArmor package profiles
+
+To avoid duplicates, no profiles provided by the Arch's "apparmor" package
+can be found in the repository. This way the custom profiles can be easily
+integrated into a system without interfering with the package.
