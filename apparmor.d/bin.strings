@@ -1,0 +1,26 @@
+# vim:syntax=apparmor
+##-----------------------------------------------------------------------------
+## AppArmor profile for the "srings" GNU binutil
+## Tested with binutils 2.39-3 on Artix Linux
+## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
+## Profile license: MIT license
+## Target program: https://gnu.org/software/binutils
+##-----------------------------------------------------------------------------
+
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile strings /{,usr/}{bin,sbin}/strings {
+
+  # Basic operating necessities
+  include <abstractions/base>
+  include <abstractions/consoles>
+
+  # As a coreutil, we might read data from anywhere on the system
+  /** r,
+
+  # Site-specific additions and overrides. See local/README for details
+  include if exists <local/bin.strings>
+
+}
