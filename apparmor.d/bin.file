@@ -17,7 +17,7 @@ profile file /{,usr/}{bin,sbin}/file {
   include <abstractions/base>
   include <abstractions/consoles>
 
-  # As a general utility, we might read from anywhere on the system
+  # As a general utility, we might read data from anywhere on the system
   /** r,
 
   # Site-specific additions and overrides. See local/README for details
