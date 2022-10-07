@@ -20,8 +20,6 @@ profile arch-audit /{,usr/}{bin,sbin}/arch-audit {
 
   # Basic operating necessities
   include <abstractions/base>
-  include <abstractions/consoles>
-  
   @{etc_ro}/arch-audit/settings.toml r,
   @{PACMAN_DB_PATH}/** r,
   
