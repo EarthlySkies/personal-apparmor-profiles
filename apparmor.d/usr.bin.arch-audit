@@ -29,7 +29,9 @@ profile arch-audit /{,usr/}{bin,sbin}/arch-audit {
   # For fetching the vulnerability data
   include <abstractions/ssl_certs>
   @{etc_ro}/resolv.conf r,
+  network inet dgram,
   network inet stream,
+  network inet6 dgram,
   network inet6 stream,
 
   # Site-specific additions and overrides. See local/README for details
