@@ -24,6 +24,13 @@ able to confine an applications access to personal files at all. As such,
 custom paths are simply not supported any further than perhaps with variables
 in some profiles.
 
+### Static path to resolv.conf is expected
+
+Profiles that need internet access assume that the system's resolv.conf can be
+found under `/etc/resolv.conf` and that it's not a symlink to another file. If
+it is, users need to modify the profiles by hand to match their system's
+configuration.
+
 ### Naming scheme
 
 Basic utilities, such as coreutils, findutils, diffutils and binutils have
