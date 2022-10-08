@@ -27,6 +27,8 @@ profile arch-audit /{,usr/}{bin,sbin}/arch-audit {
   /usr/share/terminfo/** r,
   
   # For fetching the vulnerability data
+  # Not pulling from <abstractions/nameservice> as
+  # it includes lots of stuff we don't need
   include <abstractions/ssl_certs>
   @{etc_ro}/resolv.conf r,
   network inet dgram,
