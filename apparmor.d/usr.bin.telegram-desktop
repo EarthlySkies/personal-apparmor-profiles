@@ -1,0 +1,73 @@
+# vim:syntax=apparmor
+##------------------------------------------------------------------------------
+## AppArmor profile for the "telegram-desktop" internet messenger
+## Tested with telegram-desktop 4.2.4-1 on Arch Linux
+## Profile author: EarthlySkies <earhtlyskies@protonmail.ch>
+## Profile license: MIT license
+## Target application: https://github.com/telegramdesktop/tdesktop
+##-----------------------------------------------------------------------------
+
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile telegram-desktop /{,usr/}{bin,sbin}/telegram-desktop {
+
+  # Basic operating necessities
+  include <abstractions/base>
+  include <abstractions/fonts>
+  include <abstractions/gtk>
+  include <abstractions/wayland>
+
+  # Audio playback support
+  include <abstractions/audio>
+
+  # User files
+  owner @{HOME}/Public/{,**} r,
+  include <abstractions/user-download>
+  owner @{HOME}/.TelegramDesktop/{,**} rwlk,
+  owner @{HOME}/.local/share/TelegramDesktop/{,**} rwlk,
+  # If the directories haven't been created yet
+  owner @{HOME}/ w,
+  owner @{HOME}/.local/ w,
+  owner @{HOME}/.local/share/ w,
+  # Telegram's socket
+  owner @{run}/user/[0-9]*/ w,
+  owner @{run}/user/[0-9]*/????????????????????????????????-\{????????-????-????-????-????????????\} rw,
+
+  # Access to rendering APIs
+  include <abstractions/dri-common>
+  include <abstractions/dri-enumerate>
+  include <abstractions/mesa>
+  include <abstractions/nvidia>
+  include <abstractions/video>
+  include <abstractions/vulkan>
+
+  # As an internet messenger, we need internet access
+  # Not pulling from <abstractions/nameservice> as it
+  # includes a lot of stuff we don't need access to
+  include <abstractions/ssl_certs>
+  @{etc_ro}/resolv.conf r,
+  network inet dgram,
+  network inet stream,
+  network inet6 dgram,
+  network inet6 stream,
+
+  # For the Pipewire media session
+  @{etc_ro}/pipewire/client-rt.conf.d/{,*} r,
+  /usr/share/pipewire/client-rt.conf r,
+
+  # No need for us to access these
+  deny /dev/tty rw,
+  deny /dev/console rw,
+  deny /dev/pts/{,**} rw,
+  deny @{HOME}/.aws/{,**} rwmlk,
+  deny @{HOME}/.ssh/{,**} rwmlk,
+  deny @{HOME}/.gnupg/{,**} rwmlk,
+  deny @{run}/user/[0-9]*/keyring* rwmlk,
+  deny @{run}/user/[0-9]*/dconf/{,**} w,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/usr.bin.telegram-desktop>
+
+}
