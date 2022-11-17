@@ -18,13 +18,12 @@ profile grep /{,usr/}{bin,sbin}/grep {
   include <abstractions/base>
   /{,usr/}{bin,sbin}/grep mr,
 
-  # We need this, since in addition to reading from stdin,
-  # grep can also read directly from files and those files
-  # can be in arbitrary locations anywhere on the system
+  # We need this, since in addition to reading from stdin, grep can also be
+  # used to read directly from files and those files can be in arbitrary
+  # locations anywhere on the system
   /{,**} r,
 
-  # Site-specific additions and overrides. See local/README for details
+  # Site-specific additions and overrides. See local/README for details.
   include if exists <local/bin.grep>
 
 }
-
