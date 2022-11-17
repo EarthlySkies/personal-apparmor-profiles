@@ -28,10 +28,6 @@ profile arch-audit /{,usr/}{bin,sbin}/arch-audit {
   # Colored output support
   /usr/share/terminfo/{,**} r,
 
-  # For mapping the process to our UID and GIDs
-  @{etc_ro}/passwd r,
-  @{etc_ro}/group r,
-
   # For fetching the vulnerability data
   # Not pulling from <abstractions/nameservice> as
   # it includes lots of stuff we don't need
