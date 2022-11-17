@@ -16,7 +16,7 @@ profile grep /{,usr/}{bin,sbin}/grep {
 
   # Basic operating necessities
   include <abstractions/base>
-  /{,usr/}{bin,sbin]/grep mr,
+  /{,usr/}{bin,sbin}/grep mr,
 
   # We need this, since in addition to reading from stdin,
   # grep can also read directly from files and those files
