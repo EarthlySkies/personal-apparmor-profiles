@@ -1,10 +1,11 @@
 # vim:syntax=apparmor
 ##-----------------------------------------------------------------------------
 ## AppArmor profile for the "arch-audit" utility
-## Tested with arch-audit 0.1.20-1 on Artix Linux
-## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
-## Profile license: MIT license
-## Target program: https://github.com/ilpianista/arch-audit
+## Tested with: arch-audit 0.1.20-1 on Arch Linux
+##              arch-audit 0.1.20-1 on Artix Linux
+## Profile authors: EarthlySkies <earthlyskies@protonmail.ch>
+## Profile license: the MIT license
+## Target program : https://github.com/ilpianista/arch-audit
 ##-----------------------------------------------------------------------------
 
 abi <abi/3.0>,
@@ -20,12 +21,17 @@ profile arch-audit /{,usr/}{bin,sbin}/arch-audit {
 
   # Basic operating necessities
   include <abstractions/base>
-  @{etc_ro}/arch-audit/settings.toml r,
-  @{PACMAN_DB_PATH}/** r,
-  
+  /{,usr/}{bin,sbin}/arch-audit mr,
+  @{etc_ro}/arch-audit/{,**} r,
+  @{PACMAN_DB_PATH}/{,**} r,
+
   # Colored output support
-  /usr/share/terminfo/** r,
-  
+  /usr/share/terminfo/{,**} r,
+
+  # For mapping the process to our UID and GIDs
+  @{etc_ro}/passwd r,
+  @{etc_ro}/group r,
+
   # For fetching the vulnerability data
   # Not pulling from <abstractions/nameservice> as
   # it includes lots of stuff we don't need
@@ -36,7 +42,7 @@ profile arch-audit /{,usr/}{bin,sbin}/arch-audit {
   network inet6 dgram,
   network inet6 stream,
 
-  # Site-specific additions and overrides. See local/README for details
+  # Site-specific additions and overrides. See local/README for details.
   include if exists <local/usr.bin.arch-audit>
 
 }
