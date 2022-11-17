@@ -40,6 +40,7 @@ binary executable's name they are designed for.
 
 ### AppArmor package profiles
 
-To avoid duplicates, no profiles provided by the Arch's "apparmor" package
+To avoid duplicates, no profiles provided by Arch's "apparmor" package
 can be found in the repository. This way the custom profiles can be easily
-integrated into a system without interfering with the package.
+integrated into a system without interfering with the package. See the profile
+list of the package [here](https://archlinux.org/packages/extra/x86_64/apparmor/).
