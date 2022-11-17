@@ -4,10 +4,21 @@ Personal AppArmor profiles
 This repository houses a collection of the custom AppArmor profiles I
 personally use to sandbox applications. I put them online primarily so I could
 easily fetch them from any machine, but feel free to use them yourself, as
-everything here is released under the MIT license. 
+everything here is released under the MIT license.
+
+If you feel like contributing, just open up a pull request and hope right in.
+Contributions are welcome from everyone.
 
 Notes
 -----
+
+### Profile stability is **NOT** guaranteed
+
+These profiles can (and mostly like do) contain some mistakes or configurations
+that make them unsuitable for use in production systems. In addition, the
+profiles are only guaranteed to work for my specific use cases, and those
+cases might not be the same as on your system. In short, test the profiles
+before you put them to use on your systems.
 
 ### Internet access is not guaranteed
 
