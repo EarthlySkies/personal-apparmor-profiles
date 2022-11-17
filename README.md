@@ -6,7 +6,7 @@ personally use to sandbox applications. I put them online primarily so I could
 easily fetch them from any machine, but feel free to use them yourself, as
 everything here is released under the MIT license.
 
-If you feel like contributing, just open up a pull request and hope right in.
+If you feel like contributing, just open up a pull request and hop right in.
 Contributions are welcome from everyone.
 
 Notes
