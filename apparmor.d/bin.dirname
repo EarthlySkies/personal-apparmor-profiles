@@ -2,6 +2,7 @@
 ##-----------------------------------------------------------------------------
 ## AppArmor profile for the "dirname" GNU coreutil
 ## Tested with coreutils 9.1-1 on Arch Linux
+##             coreutils 8.32-4.1ubuntu1 on Ubuntu 22.04
 ## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
 ## Profile license: MIT license
 ## Target program: https://gnu.org/software/coreutils/dirname
@@ -16,6 +17,7 @@ profile dirname /{,usr/}{bin,sbin}/dirname {
   # Basic operating necessities
   include <abstractions/base>
   include <abstractions/consoles>
+  /{,usr/}{bin,sbin}/dirname mr,
 
   # Site-specific additions and overrides. See local/README for details
   include if exists <local/bin.dirname>

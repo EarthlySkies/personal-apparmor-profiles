@@ -2,6 +2,7 @@
 ##-----------------------------------------------------------------------------
 ## AppArmor profile for the "file" utility
 ## Tested with file 5.43-1 on Artix Linux
+##             file 5.41-3 on Ubuntu 22.04
 ## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
 ## Profile license: MIT license
 ## Target program: https://darwinsys.com/file/
@@ -19,6 +20,7 @@ profile file /{,usr/}{bin,sbin}/file {
 
   # As a general utility, we might read data from anywhere on the system
   /** r,
+  capability dac_read_search,
 
   # Site-specific additions and overrides. See local/README for details
   include if exists <local/bin.file>

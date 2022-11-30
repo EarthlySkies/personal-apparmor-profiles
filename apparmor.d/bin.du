@@ -2,6 +2,7 @@
 ##-----------------------------------------------------------------------------
 ## AppArmor profile for the "du" GNU coreutil
 ## Tested with coreutils 9.1-1 on Artix Linux
+##             coreutils 8.32-4.1ubuntu1 on Ubuntu 22.04
 ## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
 ## Profile license: MIT license
 ## Target program: https://gnu.org/software/coreutils/du
@@ -16,9 +17,13 @@ profile du /{,usr/}{bin,sbin}/du {
   # Basic operating necessities
   include <abstractions/base>
   include <abstractions/consoles>
+  /{,usr/}{bin,sbin}/du mr,
 
-  # As a coreutil, we might read data from anywhere on the system
-  /** r,
+  capability dac_read_search,
+
+  # As a coreutil, we might read data from any directory on the system
+  / r,
+  /**/ r,
 
   # Site-specific additions and overrides. See local/README for details
   include if exists <local/bin.du>
