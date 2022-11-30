@@ -2,6 +2,7 @@
 ##-----------------------------------------------------------------------------
 ## AppArmor profile for the "sha256sum" GNU coreutil
 ## Tested with coreutils 9.1-1 on Artix Linux
+##             coreutils 8.32-4.1ubuntu1 on Ubuntu 22.04
 ## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
 ## Profile license: MIT license
 ## Target program: https://gnu.org/software/coreutils/sha256sum

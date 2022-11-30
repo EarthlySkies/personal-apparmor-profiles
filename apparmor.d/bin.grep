@@ -1,29 +1,30 @@
 # vim:syntax=apparmor
 ##-----------------------------------------------------------------------------
 ## AppArmor profile for the "grep" GNU utility
-## Tested with: grep 3.8-2 on Artix Linux
-##              grep 3.8-2 on Arch Linux
-## Profile authors: EarthlySkies <earthlyskies@protonmail.ch>
-## Profile license: the MIT license
-## Target program : https://gnu.org/software/grep
+## Tested with grep 3.8-2 on Artix Linux
+##             coreutils 8.32-4.1ubuntu1 on Ubuntu 22.04
+## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
+## Profile license: MIT license
+## Target program: https://gnu.org/software/grep
 ##-----------------------------------------------------------------------------
 
 abi <abi/3.0>,
 
 include <tunables/global>
 
-profile grep /{,usr/}{bin,sbin}/grep {
+profile grep /{,usr/}{bin,sbin}/grep flags=(complain) {
 
   # Basic operating necessities
   include <abstractions/base>
-  /{,usr/}{bin,sbin}/grep mr,
+  include <abstractions/consoles>
 
-  # We need this, since in addition to reading from stdin, grep can also be
-  # used to read directly from files and those files can be in arbitrary
-  # locations anywhere on the system
-  /{,**} r,
+  capability dac_read_search,
 
-  # Site-specific additions and overrides. See local/README for details.
+  # As a general utility, we might read data from anywhere on the system
+  /** r,
+
+  # Site-specific additions and overrides. See local/README for details
   include if exists <local/bin.grep>
 
 }
+
