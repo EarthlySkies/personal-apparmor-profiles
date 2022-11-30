@@ -1,5 +1,6 @@
 # vim:syntax=apparmor
 ##-----------------------------------------------------------------------------
+## AppArmor profile for the "grep" GNU utility
 ## Tested with: grep 3.8-2 on Artix Linux
 ##              grep 3.8-2 on Arch Linux
 ##              grep 3.7-1build1 on Ubuntu 22.04
