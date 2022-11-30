@@ -20,6 +20,8 @@ profile md5sum /{,usr/}{bin,sbin}/md5sum {
 
   # As a coreutil, we might read data from anywhere on the system
   /** r,
+       capability dac_read_search,
+  deny capability dac_override,
 
   # Site-specific additions and overrides. See local/README for details
   include if exists <local/bin.md5sum>

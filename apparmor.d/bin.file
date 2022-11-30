@@ -20,6 +20,7 @@ profile file /{,usr/}{bin,sbin}/file {
 
   # As a general utility, we might read data from anywhere on the system
   /** r,
+  capability dac_read_search,
 
   # Site-specific additions and overrides. See local/README for details
   include if exists <local/bin.file>

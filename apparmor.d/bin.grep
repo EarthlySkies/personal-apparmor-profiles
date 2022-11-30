@@ -26,7 +26,7 @@ profile grep /{,usr/}{bin,sbin}/grep {
   # locations anywhere on the system
   /{,**} r,
 
-  # Site-specific additions and overrides. See local/README for details
+  # Site-specific additions and overrides. See local/README for details.
   include if exists <local/bin.grep>
 
 }
