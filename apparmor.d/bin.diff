@@ -12,7 +12,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile diff /{,usr/}{bin,sbin}/diff flags=(complain) {
+profile diff /{,usr/}{bin,sbin}/diff {
 
   # Basic operating necessities
   include <abstractions/base>

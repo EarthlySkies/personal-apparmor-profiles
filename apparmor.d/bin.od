@@ -12,7 +12,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile od /{,usr/}{bin,sbin}/od flags=(complain) {
+profile od /{,usr/}{bin,sbin}/od {
 
   # Basic operating necessities
   include <abstractions/base>

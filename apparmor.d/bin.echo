@@ -12,7 +12,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile echo /{,usr/}{bin,sbin}/echo flags=(complain) {
+profile echo /{,usr/}{bin,sbin}/echo {
 
   # Basic operating necessities
   include <abstractions/base>

@@ -12,7 +12,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile cut /{,usr/}{bin,sbin}/cut flags=(complain) {
+profile cut /{,usr/}{bin,sbin}/cut {
 
   # Basic operating necessities
   include <abstractions/base>

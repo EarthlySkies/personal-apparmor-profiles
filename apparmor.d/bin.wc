@@ -12,7 +12,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile wc /{,usr/}{bin,sbin}/wc flags=(complain) {
+profile wc /{,usr/}{bin,sbin}/wc {
 
   # Basic operating necessities
   include <abstractions/base>

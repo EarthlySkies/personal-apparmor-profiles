@@ -12,7 +12,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile tac /{,usr/}{bin,sbin}/tac flags=(complain) {
+profile tac /{,usr/}{bin,sbin}/tac {
 
   # Basic operating necessities
   include <abstractions/base>

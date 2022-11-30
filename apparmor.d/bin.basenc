@@ -12,7 +12,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile basenc /{,usr/}{bin,sbin}/basenc flags=(complain) {
+profile basenc /{,usr/}{bin,sbin}/basenc {
 
   # Basic operating necessities
   include <abstractions/base>

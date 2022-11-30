@@ -2,7 +2,7 @@
 ##-----------------------------------------------------------------------------
 ## AppArmor profile for the "file" utility
 ## Tested with file 5.43-1 on Artix Linux
-##             coreutils 8.32-4.1ubuntu1 on Ubuntu 22.04
+##             file 5.41-3 on Ubuntu 22.04
 ## Profile author: EarthlySkies <earthlyskies@protonmail.ch>
 ## Profile license: MIT license
 ## Target program: https://darwinsys.com/file/

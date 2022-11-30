@@ -12,7 +12,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile comm /{,usr/}{bin,sbin}/comm flags=(complain) {
+profile comm /{,usr/}{bin,sbin}/comm {
 
   # Basic operating necessities
   include <abstractions/base>
